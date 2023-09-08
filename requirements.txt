@@ -1,0 +1,5 @@
+python-dotenv==1.0.0
+asyncpg==0.27.0
+SQLAlchemy==1.4.47
+pandas==2.0.2
+psycopg2-binary==2.9.6

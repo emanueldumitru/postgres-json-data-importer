@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  ### OLAP Database
+  olap:
+    container_name: postgres_olap
+    image: debezium/postgres:13
+    ports:
+      - 5471:5432
+    volumes:
+      - olap:/var/lib/postgresql/data
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    expose:
+      - 5471
+    platform: linux/amd64
+    profiles: ["datasource"]
+
+volumes:
+  olap:
+networks:
+  default:
+    name: prefect-network
